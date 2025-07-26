@@ -1,176 +1,163 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
 #include <iostream>
-#include <algorithm>
 using namespace std;
+
 struct node {
     int info;
-    struct node *lptr;
-    struct node *rptr;
-      struct node *r;
-    struct node *l;
+    node *lptr;
+    node *rptr;
 };
-  struct node *r=NULL;
-    struct node *l=NULL;
-// struct node*first
 
-struct node *create(int n)
-{
-          struct node *temp;
-    
-    temp= new node();
-    temp->info=n;
-    temp->lptr=NULL;
-    temp->rptr =NULL;
+node *l = NULL, *r = NULL;
+
+node* create(int n) {
+    node *temp = new node();
+    temp->info = n;
+    temp->lptr = NULL;
+    temp->rptr = NULL;
     return temp;
-  
 }
-void insert_f()
-{
-   int n;
-    cin>>n;
-   struct node *temp;
-    temp=create(n);
-        if(l==NULL)
-        {
-            l=temp;
-            r=temp;
-            
-        }
-    else
-    {
-        temp->rptr=l;
-        l->lptr=temp;
-        l=temp;
-    }
-}
-void insert_e()
-{
+
+void insert_f() {
     int n;
-    cin>>n;
-    struct node *temp;
-    temp=create(n);
-    if(r==NULL)
-    {
-        l=temp;
-        r=temp;
+    cin >> n;
+    node *temp = create(n);
+    if (l == NULL) {
+        l = r = temp;
+    } else {
+        temp->rptr = l;
+        l->lptr = temp;
+        l = temp;
     }
+}
+
+void insert_e() {
+    int n;
+    cin >> n;
+    node *temp = create(n);
+    if (r == NULL) {
+        l = r = temp;
+    } else {
+        r->rptr = temp;
+        temp->lptr = r;
+        r = temp;
+    }
+}
+
+void insert_df() {
+    if (l == NULL) {
+        cout << "List is Empty" << endl;
+        return;
+    }
+    node *temp = l;
+    if (l == r) {
+        l = r = NULL;
+    } else {
+        l = l->rptr;
+        l->lptr = NULL;
+    }
+    delete temp;
+}
+
+void insert_da() {
+    if (r == NULL) {
+        cout << "List is Empty" << endl;
+        return;
+    }
+    node *temp = r;
+    if (l == r) {
+        l = r = NULL;
+    } else {
+        r = r->lptr;
+        r->rptr = NULL;
+    }
+    delete temp;
+}
+
+void de_m() {
+    int x;
+    cin >> x;
+    node *trav = l;
+
+    while (trav != NULL && trav->info != x) {
+        trav = trav->rptr;
+    }
+
+    if (trav == NULL) {
+        cout << "Given node not found" << endl;
+        return;
+    }
+
+    int val;
+    cin >> val;
+    node *temp = create(val);
+
+    temp->rptr = trav->rptr;
+    temp->lptr = trav;
+
+    if (trav->rptr != NULL)
+        trav->rptr->lptr = temp;
     else
-    {
-        temp->lptr=r;
-        r->rptr=temp;
-        r=temp;
-    }
+        r = temp; 
+
+    trav->rptr = temp;
 }
 
-
-
- void insert_da()
-{
-       struct node *temp;
-    if(r==NULL)
-    {
-        cout<<"List is Empty"<<endl;
-    }
-    else if(l==r)
-    {
-        temp=r;
-        free(temp);
-        l=NULL,r=NULL;
-    }
-    else
-    {
-        temp=r;
-        r=r->lptr;
-        free(temp);
-        r->rptr=NULL;
+void display() {
+    if (l == NULL) {
+        cout << "List is Empty" << endl;
+        return;
     }
 
-    
-}
-void insert_df()
-{
- 
-    struct node *temp;
-    if(l==NULL)
-    {
-        cout<<"List is Empty"<<endl;
+    node *trav = l;
+    while (trav != NULL) {
+        cout << trav->info << " ";
+        trav = trav->rptr;
     }
-    else if(l==r)
-    {
-        temp=l;
-        free(temp);
-        l=NULL,r=NULL;
-    }
-    else
-    {
-        temp=l;
-        l=l->rptr;
-        free(temp);
-        l->lptr=NULL;
-    }
-
-}
- void de_m()
- {
-     int x;
-     cin>>x;
-     struct node *trav=l;
-     while(trav->info!=x)
-     {
-         trav=trav->rptr;
-     }
-     // trav->lptr->rptr=trav->rptr;
-     trav->rptr->lptr=trav->lptr;
- }
-void display()
-{
- struct node *trav=l;
-    while(trav!=NULL)
-    {
-        cout<<trav->info<<" ";
-        trav=trav->rptr;
-    }
-    cout<<endl;
+    cout << endl;
 }
 
+void count_nodes() {
+    int count = 0;
+    node *trav = l;
+    while (trav != NULL) {
+        count++;
+        trav = trav->rptr;
+    }
+    cout << count << endl;
+}
 
 int main() {
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
     int ch;
-    
-    
-    do{
-        
-    cin>>ch;
-    switch(ch)
-    {
-        case 1 :
-            insert_f();
-            break;
-             case 2:
-            insert_e();
-            break;
-        case 3:
-            insert_df();
-            break;
-        case 4:
-           insert_da();
-            break;
-        case 5:
-            de_m();
-            break;
-        case 6:
-             display();
-                 break;
-        case 0:
-            exit(0);
-       
-           
-    }
-    }while(ch!=0);
-    
-    
+    do {
+        cin >> ch;
+        switch (ch) {
+            case 1:
+                insert_f();
+                break;
+            case 2:
+                insert_e();
+                break;
+            case 3:
+                insert_df();
+                break;
+            case 4:
+                insert_da();
+                break;
+            case 5:
+                de_m();
+                break;
+            case 6:
+                display();
+                break;
+            case 7:
+                count_nodes();
+                break;
+            case 0:
+                break;
+            default:
+                cout << "Invalid choice" << endl;
+        }
+    } while (ch != 0);
+
     return 0;
 }
