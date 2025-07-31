@@ -12,7 +12,8 @@ struct node
 struct  node *create(int n)
 {
    struct node *temp;
-   temp= (struct node*)malloc(sizeof( struct node));
+//    temp= (struct node*)malloc(sizeof( struct node));
+     temp=new node;
    temp->data=n;
    temp->link =NULL;
    return temp;
