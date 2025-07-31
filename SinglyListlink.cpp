@@ -61,9 +61,13 @@ void display()
  }
 int main()
 {
+
     int ch;
-    cin>>ch;
-    switch (ch)
+    do
+    {
+        cin>>ch;
+        /* code */
+            switch (ch)
     {
     case 1:
         insertfornt();
@@ -75,8 +79,14 @@ int main()
     case 3:
         display();
         break;
+        case 0 :
+        exit(0);
     default:
         break;
     }
+    } while (ch!=0);
+    
+    cin>>ch;
+
     return 0;
 }
