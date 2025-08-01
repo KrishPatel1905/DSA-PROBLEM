@@ -29,7 +29,7 @@ int main() {
         cin>>arr[i];
     }
      cin>>k;
-    v=search(arr,n,k);
+    v=search(arr,n,k);  
     if(v==-1)
     {
         cout<< "Element "<<k<< " is not present in the array"<<endl;
@@ -43,4 +43,3 @@ int main() {
     
     return 0;
 }
-    

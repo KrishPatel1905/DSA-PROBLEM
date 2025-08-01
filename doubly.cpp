@@ -4,7 +4,7 @@ using namespace std;
 struct node {
     int info;
     node *lptr;
-    node *rptr;
+    node *rptr;     
 };
 
 node *l = NULL, *r = NULL;
