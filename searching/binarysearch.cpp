@@ -13,7 +13,7 @@ using namespace std;
             else if(arr[mid]<=key){
                  low=mid+1;
             }
-            else{
+              else{
                 high=mid-1;
             }
          }
