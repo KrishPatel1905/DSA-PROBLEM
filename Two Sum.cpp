@@ -1,7 +1,20 @@
-#include<iostream>
-using namespace std;
-int main()
-{
-    int a[5]={1,2,3,4,5};
-    return 0;
-}
+class Solution {
+    public :
+    vector<int> twoSum(vector<int> &num,int target)
+    {
+        for(int i=0;i<num.size();i++)
+        {
+            for(int j=i+1;j<num.size();j++)
+            {
+             if(num[i]+num[j]==target) 
+            {
+                return {i,j};
+            }
+       
+            }
+          
+        }
+         return {} ;
+    }
+    
+};
