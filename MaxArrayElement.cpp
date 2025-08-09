@@ -19,6 +19,6 @@ using namespace std;
                  max=num;
              }
          }
-         cout<<"Value is "<<max<<endl;
+         cout<<"Value is :"<<max<<" "<<endl;
      }
  }
