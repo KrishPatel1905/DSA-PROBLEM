@@ -18,8 +18,8 @@ struct node *create(int n) {
 }
 
 void push(int n) {
-    // int data;
-    // cin >> data;
+        // int data;
+        // cin >> data;
     struct node *temp = create(n);
     temp->link = first;
     first = temp;
