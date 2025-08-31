@@ -4,7 +4,7 @@ using namespace std;
 int arr[100];
 
 
-struct node {
+struct node { 
     int data;
     struct node* link;
 };
