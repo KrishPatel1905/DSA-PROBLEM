@@ -2,13 +2,13 @@
 using namespace std;
 
 vector<int> twoSum(vector<int>& arr, int target) {
-    unordered_map<int, int> mp; // value -> index
+    unordered_map<int, int> mp; 
     for (int i = 0; i < arr.size(); i++) {
         int diff = target - arr[i];
         if (mp.find(diff) != mp.end()) {
-            return {mp[diff], i}; // found pair
+            return {mp[diff], i}; 
         }
-        mp[arr[i]] = i; // store current element
+        mp[arr[i]] = i; 
     }
     return {};
 }
