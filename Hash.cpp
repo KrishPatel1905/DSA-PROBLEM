@@ -18,7 +18,7 @@ int main() {
     int target = 9;
     
     vector<int> ans = twoSum(arr, target);
-    cout <<"."<< "Indices::  [" << ans[0] << ", " << ans[1] << "]" << endl;
+    cout << "Indices::  [" << ans[0] << ", " << ans[1] << "]" << endl;
 
     return 0;
 }
