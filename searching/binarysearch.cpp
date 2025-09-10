@@ -4,7 +4,7 @@ using namespace std;
    {     int low=0,high=n-1;
          while (low<=high)
          {
-            /* code */
+            
             int mid=(low+high)/2;
             if(arr[mid]==key)
             {
