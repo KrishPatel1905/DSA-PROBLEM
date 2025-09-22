@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxFrequencyElements(vector<int>& nums) {
         int n = nums.size();
-        int maxFreq = 0;
+        int max = 0;
         int total = 0;
 
         
@@ -13,8 +13,8 @@ public:
                     count++;
                 }
             }
-            if (count > maxFreq) {
-                maxFreq = count;
+            if (count > max) {
+                max = count;
             }
         }
 
@@ -26,7 +26,7 @@ public:
                     count++;
                 }
             }
-            if (count == maxFreq) {
+            if (count == max) {
                 total += count;
             }
         }
