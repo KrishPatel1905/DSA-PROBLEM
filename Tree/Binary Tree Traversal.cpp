@@ -66,7 +66,7 @@ queue<node* > q;
 
 
 int main() {
-    cout<<"";
+    cout<<" ";
     node* root = create();
     
     preorder(root);
