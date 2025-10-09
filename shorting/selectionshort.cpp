@@ -24,7 +24,7 @@
             }
             swap(arr[i],arr[min]);
         }
-        cout<<"Shorted Array :";
+        cout<<"Shorted Array ::";
         for(int i=0;i<n;i++)
         {
             cout<<arr[i]<<" ";
