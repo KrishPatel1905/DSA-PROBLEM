@@ -5,7 +5,7 @@
     {
         int n;
         
-        cout<<"Enter the value of n :";
+        cout<<"Enter the value of n ::";
         cin>>n;
         int arr[n];
         for(int i=0;i<n;i++)
@@ -24,7 +24,7 @@
             }
             swap(arr[i],arr[min]);
         }
-        cout<<"Shorted Array :";
+        cout<<"Shorted Array ::";
         for(int i=0;i<n;i++)
         {
             cout<<arr[i]<<" ";
