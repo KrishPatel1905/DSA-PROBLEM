@@ -24,7 +24,7 @@ void push(int n) {
 void  pop() {
     struct node *temp = first;
     if (first == NULL) {
-    cout << "underflow :"<<endl;
+    cout << "underflow ::"<<endl;
         // return -1; 
     } else {
         int val = temp->data;  
