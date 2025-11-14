@@ -1,82 +1,98 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include<iostream>
+#include<queue>
 
-struct node {
+using namespace std;
+struct node
+{
     int data;
     node *left;
-    node *right;
+    node*right;
 };
-
-node* create() {
+node* create()
+{
     int x;
-    cin >> x;
-    if (x == -1) return NULL;
-
-    node* p = new node();
+    cin>>x;
+    if(x==-1)
+    {
+        return NULL;
+    }
+    node *p = new node();
     p->data = x;
     p->left = create();
     p->right = create();
-    return p;
+    
+     return p;
 }
-
-void preorder(node* root) {
-    if (root != NULL) {
-        cout << root->data << " ";
-        preorder(root->left);
-        preorder(root->right);
-    }
-}
-
-void inorder(node* root) {
-    if (root != NULL) {
-        inorder(root->left);
-        cout << root->data << " ";
-        inorder(root->right);
-    }
-}
-
-void postorder(node* root) {
-    if (root != NULL) {
-        postorder(root->left);
-        postorder(root->right);
-        cout << root->data << " ";
-    }
-}
-void levelorder(node *root)
+void pre(node *root)
 {
-queue<node* > q;
+        if(root!=NULL)
+        {
+            cout<<root->data;
+            pre(root->left);
+            pre(root->right);
+        }
+}
+
+void lev(node *root)
+{
+    if(root==NULL)return;
+
+    queue<node *>q;
     q.push(root);
     while(!q.empty())
     {
-        struct node *temp;
-        temp=q.front();
-        cout<<temp->data<<" ";
-        q.pop();
-        if(temp->left)
-        {
-            q.push(temp->left);
-        }
-        if(temp->right)
-        {
-            q.push(temp->right);
-        }
+       node *temp = q.front();
+       q.pop();
+       
+       cout<<temp->data;
+
+       if(temp->left){q.push(temp->left);}
+
+       if(temp->right){q.push(temp->right);}
+
+    
+
     }
 }
+void post(node *root)
+{
+        if(root!=NULL)
+        {
+            post(root->left);
+              post(root->right);
+            cout<<root->data;
+            
+          
+        }
+}
 
-int main() {
-    cout<<"  ";
-    node* root = create();  
-    
-    preorder(root);
+void in(node *root)
+{
+        if(root!=NULL)
+        {
+            pre(root->left);
+            cout<<root->data;
+            
+            pre(root->right);
+        }
+}
+
+
+int main()
+{
+    node *root = create();
+
+
+        pre(root);
     cout << endl;
-    
-    inorder(root);
+
+    in(root);
     cout << endl;
-    
-    postorder(root);
+
+    post(root);
     cout << endl;
-    
-    levelorder(root);
-    
-    return 0;
+
+    lev (root);
+    cout << endl;
+
 }
