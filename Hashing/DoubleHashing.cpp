@@ -60,8 +60,8 @@ int main() {
     cout << "Hash Table:\n";
     ht.display();
 
-    cout << "\nSearch 15:: " << (ht.search(15) ? "Found:: ::" : "Not Found") << endl;
-    cout << "Search 99:: " << (ht.search(99) ? "Found ::" : "Not Found") << endl;
+    cout << "\nSearch 15: " << (ht.search(15) ? "Found:: ::" : "Not Found") << endl;
+    cout << "Search 99: " << (ht.search(99) ? "Found ::" : "Not Found") << endl;
 
     return 0;
 }
